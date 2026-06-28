@@ -977,13 +977,16 @@ a {
 .place-link {
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
-  margin: 0 0 0.4rem;
-  padding: 0.62rem 0.9rem;
+  justify-content: space-between;
+  gap: 0.75rem;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0;
+  padding: 0.72rem 0.95rem;
   border-radius: 14px;
-  background: rgba(188, 166, 145, 0.16);
-  border: 1px solid rgba(188, 166, 145, 0.28);
-  box-shadow: 0 8px 18px rgba(28, 24, 21, 0.05);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.78));
+  border: 1px solid rgba(188, 166, 145, 0.24);
+  box-shadow: 0 8px 18px rgba(28, 24, 21, 0.04);
   color: #2f2925;
   font-weight: 700;
   text-decoration: none;
@@ -995,15 +998,15 @@ a {
   font-size: 0.78rem;
   padding: 0.24rem 0.46rem;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(188, 166, 145, 0.16);
   color: #6f6257;
 }
 
 .place-link:hover,
 .place-link:focus-visible {
   color: #231f1c;
-  background: rgba(188, 166, 145, 0.24);
-  border-color: rgba(188, 166, 145, 0.5);
+  background: rgba(255, 255, 255, 0.98);
+  border-color: rgba(188, 166, 145, 0.46);
   box-shadow: 0 12px 24px rgba(28, 24, 21, 0.08);
   transform: translateY(-1px);
   outline: none;
@@ -1012,6 +1015,30 @@ a {
 .panel-dark .place-link,
 .accordion .place-link {
   color: inherit;
+}
+
+.favorites-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.8rem;
+}
+
+.favorite-item {
+  display: grid;
+  gap: 0.6rem;
+  padding: 1rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.56);
+  border: 1px solid rgba(110, 100, 92, 0.1);
+  box-shadow: 0 10px 22px rgba(28, 24, 21, 0.04);
+}
+
+.favorite-copy {
+  margin: 0;
+  color: #3f3833;
+  line-height: 1.55;
 }
 
 .tag-row {
