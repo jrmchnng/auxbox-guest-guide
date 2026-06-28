@@ -19,8 +19,17 @@
     </header>
 
     <section class="board" aria-label="Guide navigation">
+      <div class="search-wrap">
+        <label class="search-label" for="guide-search">Search the guide</label>
+        <div class="search-shell">
+          <input id="guide-search" class="search-input" type="search" placeholder="Search parking, sauna, coffee, canoe, check out..." autocomplete="off">
+          <button id="search-clear" class="search-clear" type="button" aria-label="Clear search">Clear</button>
+        </div>
+        <p id="search-hint" class="search-hint">Try: parking, access code, coffee, sauna, canoe, garbage, fireplace, restaurants</p>
+      </div>
+
       <div class="grid">
-        <a class="card" href="welcome.html">
+        <a class="card" href="welcome.html" data-search="welcome contact contacts phone emergency help garth louis dwayne stay overview guest guide start here">
           <div class="card-head">
             <div class="icon" aria-hidden="true">01</div>
             <span class="chip">Start Here</span>
@@ -32,7 +41,7 @@
           <div class="card-foot"><span>Open page</span><span aria-hidden="true">+</span></div>
         </a>
 
-        <a class="card" href="arrival.html">
+        <a class="card" href="arrival.html" data-search="arrival check in check-in parking park address markles road brunel road access code trail path cabin aux box sign gps">
           <div class="card-head">
             <div class="icon" aria-hidden="true">02</div>
             <span class="chip">Arrival</span>
@@ -44,7 +53,7 @@
           <div class="card-foot"><span>Open page</span><span aria-hidden="true">+</span></div>
         </a>
 
-        <a class="card" href="kitchenette.html">
+        <a class="card" href="kitchenette.html" data-search="kitchen kitchenette water drinking water coffee french press kettle toaster induction cooktop cookware dish soap plates bowls mugs pantry tea sugar salt pepper bbq fridge">
           <div class="card-head">
             <div class="icon" aria-hidden="true">03</div>
             <span class="chip">Kitchen</span>
@@ -56,7 +65,7 @@
           <div class="card-foot"><span>Open page</span><span aria-hidden="true">+</span></div>
         </a>
 
-        <a class="card" href="nordic-spa.html">
+        <a class="card" href="nordic-spa.html" data-search="spa nordic spa sauna hot tub cold plunge shower sauna controls temperature lighting hydrate etiquette circuit">
           <div class="card-head">
             <div class="icon" aria-hidden="true">04</div>
             <span class="chip">Spa</span>
@@ -68,7 +77,7 @@
           <div class="card-foot"><span>Open page</span><span aria-hidden="true">+</span></div>
         </a>
 
-        <a class="card" href="indoor-wood-fireplace.html">
+        <a class="card" href="indoor-wood-fireplace.html" data-search="fireplace fire wood fire indoor fireplace kindling draft patio door logs tutorial troubleshooting">
           <div class="card-head">
             <div class="icon" aria-hidden="true">05</div>
             <span class="chip">Fireplace</span>
@@ -80,7 +89,7 @@
           <div class="card-foot"><span>Open page</span><span aria-hidden="true">+</span></div>
         </a>
 
-        <a class="card" href="waterfront-access.html">
+        <a class="card" href="waterfront-access.html" data-search="waterfront river dock canoe paddles life jackets swimming trail waterfront access return canoe return paddles storage bin safety">
           <div class="card-head">
             <div class="icon" aria-hidden="true">06</div>
             <span class="chip">Waterfront</span>
@@ -92,7 +101,7 @@
           <div class="card-foot"><span>Open page</span><span aria-hidden="true">+</span></div>
         </a>
 
-        <a class="card" href="local-favorites.html">
+        <a class="card" href="local-favorites.html" data-search="local favorites restaurants food dining pizza sushi bbq ice cream activities hikes lookout limberlost arrowhead downtown huntsville winter skiing dog sledding yoga">
           <div class="card-head">
             <div class="icon" aria-hidden="true">07</div>
             <span class="chip">Explore</span>
@@ -104,7 +113,7 @@
           <div class="card-foot"><span>Open page</span><span aria-hidden="true">+</span></div>
         </a>
 
-        <a class="card" href="check-out-list.html">
+        <a class="card" href="check-out-list.html" data-search="check out checkout departure dishes garbage blue dumpster canoe paddles life jackets leave tidy working properly report">
           <div class="card-head">
             <div class="icon" aria-hidden="true">08</div>
             <span class="chip">Departure</span>
@@ -116,8 +125,55 @@
           <div class="card-foot"><span>Open page</span><span aria-hidden="true">+</span></div>
         </a>
       </div>
+      <p id="search-empty" class="search-empty" hidden>No results found. Try words like <strong>parking</strong>, <strong>sauna</strong>, <strong>coffee</strong>, or <strong>garbage</strong>.</p>
     </section>
   </main>
+  <script>
+    const searchInput = document.getElementById("guide-search");
+    const clearButton = document.getElementById("search-clear");
+    const searchHint = document.getElementById("search-hint");
+    const emptyState = document.getElementById("search-empty");
+    const cards = Array.from(document.querySelectorAll(".grid .card"));
+
+    function normalize(value) {
+      return value
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, " ")
+        .replace(/\s+/g, " ")
+        .trim();
+    }
+
+    const searchableCards = cards.map((card) => ({
+      element: card,
+      haystack: normalize((card.textContent || "") + " " + (card.dataset.search || ""))
+    }));
+
+    function filterCards() {
+      const query = normalize(searchInput.value);
+      const terms = query === "" ? [] : query.split(" ");
+      let visibleCount = 0;
+
+      searchableCards.forEach(({ element, haystack }) => {
+        const matches = terms.length === 0 || terms.every((term) => haystack.includes(term));
+        element.style.display = matches ? "" : "none";
+        if (matches) visibleCount += 1;
+      });
+
+      const hasQuery = query.length > 0;
+      emptyState.hidden = !(hasQuery && visibleCount === 0);
+      searchHint.hidden = hasQuery && visibleCount > 0;
+      clearButton.hidden = !hasQuery;
+    }
+
+    searchInput.addEventListener("input", filterCards);
+    clearButton.addEventListener("click", () => {
+      searchInput.value = "";
+      filterCards();
+      searchInput.focus();
+    });
+
+    filterCards();
+  </script>
 </body>
 
 </html>
