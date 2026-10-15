@@ -6,18 +6,95 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Waterfront Access | Aux Box Guest Guide</title>
   <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /* Align both video captions and players in shared rows. */
+    .waterfront-page .waterfront-videos {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: 1rem;
+      row-gap: 0;
+      align-items: stretch;
+    }
+
+    .waterfront-page .waterfront-video-card {
+      display: grid;
+      grid-row: span 2;
+      grid-template-rows: subgrid;
+      padding: 0;
+    }
+
+    .waterfront-page .waterfront-video-card .media-figure {
+      display: grid;
+      grid-row: span 2;
+      grid-template-rows: subgrid;
+    }
+
+    .waterfront-page .waterfront-video-card .media-caption {
+      align-content: start;
+      padding: 1rem;
+    }
+
+    .waterfront-page .waterfront-video-card .portrait-player {
+      width: min(310px, calc(100% - 2rem));
+      margin: 0 auto 1rem;
+      align-self: start;
+    }
+
+    .waterfront-page .waterfront-video-card .media-frame {
+      aspect-ratio: 9 / 16;
+    }
+
+    .waterfront-page .waterfront-video-card video {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Keep the two return-gear photos equal in size. */
+    .waterfront-page .waterfront-return-grid {
+      align-items: stretch;
+    }
+
+    .waterfront-page .waterfront-return-grid .media-frame.tall {
+      aspect-ratio: 4 / 5;
+    }
+
+    @media (max-width: 1100px) {
+      .waterfront-page .waterfront-videos {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .waterfront-page .waterfront-video-card {
+        display: block;
+        grid-row: auto;
+      }
+
+      .waterfront-page .waterfront-video-card .media-figure {
+        display: block;
+        grid-row: auto;
+      }
+    }
+  </style>
 </head>
 
 <body>
-  <main class="page-shell">
+  <main class="page-shell waterfront-page">
     <div class="utility-bar sticky-home">
-      <a class="utility-link" href="index.html">Back to guide home</a>
+      <a class="utility-link" href="index.html">
+        Back to guide home
+      </a>
     </div>
 
     <section class="hero-card">
       <h1>Waterfront Access</h1>
-      <p>Enjoy exclusive access to the Muskoka River during your stay. The waterfront area features a private dock,
-        lounge chairs, and a canoe for exploring the river.</p>
+      <p>
+        Enjoy exclusive access to the Muskoka River during your stay.
+        The waterfront area features a private dock, lounge chairs,
+        and a canoe for exploring the river.
+      </p>
       <div class="hero-meta">
         <span class="meta-chip">5-minute walk</span>
         <span class="meta-chip">Private dock</span>
@@ -31,22 +108,21 @@
           <div class="media-frame">
             <img src="river.png" alt="Private dock on the Muskoka River with canoe access at the Aux Box waterfront.">
           </div>
-          <figcaption class="media-caption">
-            <span class="media-kicker">Riverfront</span>
-            <h3>Private dock access</h3>
-            <p>The Muskoka River is calm, clean, and excellent for swimming during the summer months.</p>
-          </figcaption>
         </figure>
       </article>
 
-      <div class="video-grid span-12">
-        <article class="panel media-card">
+      <div class="waterfront-videos span-12">
+        <article class="panel media-card waterfront-video-card">
           <figure class="media-figure">
             <figcaption class="media-caption">
-              <span class="media-kicker">Walkthrough</span>
+              <span class="media-kicker">How to Get to the Dock</span>
               <h3>Getting to the waterfront</h3>
-              <p>The waterfront is approximately a 5-minute walk from the Aux Box.</p>
+              <p>
+                The waterfront is approximately a 5-minute walk
+                from the Aux Box.
+              </p>
             </figcaption>
+
             <div class="portrait-player">
               <div class="media-frame portrait">
                 <video controls preload="metadata" poster="getting-to-waterfront.png">
@@ -58,13 +134,13 @@
           </figure>
         </article>
 
-        <article class="panel media-card">
+        <article class="panel media-card waterfront-video-card">
           <figure class="media-figure">
             <figcaption class="media-caption">
               <span class="media-kicker">Canoe use</span>
               <h3>Paddles, canoe, and life jackets</h3>
-              <p>A canoe, paddles, and life jackets are provided for your enjoyment.</p>
             </figcaption>
+
             <div class="portrait-player">
               <div class="media-frame portrait">
                 <video controls preload="metadata" poster="canoe-use.png">
@@ -79,9 +155,13 @@
 
       <article class="panel span-12">
         <h2>Before Leaving the Waterfront</h2>
-        <p class="section-intro">Before heading back up the trail, take a moment to return the canoe gear and leave the
-          dock area in the same condition you found it.</p>
-        <div class="steps-grid">
+        <p class="section-intro">
+          Before heading back up the trail, take a moment to return
+          the canoe gear and leave the dock area in the same condition
+          you found it.
+        </p>
+
+        <div class="steps-grid waterfront-return-grid">
           <div class="panel media-card">
             <figure class="media-figure">
               <div class="media-frame tall">
@@ -91,7 +171,10 @@
               <figcaption class="media-caption">
                 <span class="media-kicker">Step 1</span>
                 <h3>Return the canoe</h3>
-                <p>Return the canoe to its designated storage location when you are finished at the dock.</p>
+                <p>
+                  Return the canoe to its designated storage location
+                  when you are finished at the dock.
+                </p>
               </figcaption>
             </figure>
           </div>
@@ -105,7 +188,10 @@
               <figcaption class="media-caption">
                 <span class="media-kicker">Step 2</span>
                 <h3>Return paddles and life jackets</h3>
-                <p>Place all paddles and life jackets back into the storage bin before heading up the trail.</p>
+                <p>
+                  Place all paddles and life jackets back into the
+                  storage bin before heading up the trail.
+                </p>
               </figcaption>
             </figure>
           </div>
@@ -115,7 +201,10 @@
               <figcaption class="media-caption">
                 <span class="media-kicker">Step 3</span>
                 <h3>Leave the dock area tidy</h3>
-                <p>Leave the dock area tidy and in the same condition you found it.</p>
+                <p>
+                  Leave the dock area tidy and in the same condition
+                  you found it.
+                </p>
               </figcaption>
             </figure>
           </div>
@@ -127,14 +216,27 @@
           <summary>Important information and safety</summary>
           <div class="accordion-body">
             <ul class="list">
-              <li>Use the waterfront, dock, and canoe at your own risk.</li>
-              <li>River conditions can vary throughout the year.</li>
-              <li>While the Muskoka River is typically calm, water levels and current may be stronger during certain
-                seasons or following significant rainfall.</li>
-              <li>If you are inexperienced with canoeing, we recommend paddling upstream from the dock first so the
-                return trip is easier with the current.</li>
-              <li>The owners of the Aux Box assume no liability for injuries, accidents, or losses resulting from use of
-                the waterfront, dock, canoe, or surrounding area.</li>
+              <li>
+                Use the waterfront, dock, and canoe at your own risk.
+              </li>
+              <li>
+                River conditions can vary throughout the year.
+              </li>
+              <li>
+                While the Muskoka River is typically calm, water
+                levels and current may be stronger during certain
+                seasons or following significant rainfall.
+              </li>
+              <li>
+                If you are inexperienced with canoeing, we recommend
+                paddling upstream from the dock first so the return
+                trip is easier with the current.
+              </li>
+              <li>
+                The owners of the Aux Box assume no liability for
+                injuries, accidents, or losses resulting from use
+                of the waterfront, dock, canoe, or surrounding area.
+              </li>
             </ul>
           </div>
         </details>

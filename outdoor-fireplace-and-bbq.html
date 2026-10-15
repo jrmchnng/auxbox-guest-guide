@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outdoor Fireplace and BBQ | Aux Box Guest Guide</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        .propane-guide .appliance-section {
+            margin-bottom: 1rem;
+        }
+
+        .propane-guide .appliance-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.6fr);
+            gap: 1.25rem;
+            align-items: start;
+        }
+
+        .propane-guide .appliance-copy h2 {
+            margin-bottom: 1rem;
+            font-size: clamp(1.25rem, 2vw, 1.55rem);
+        }
+
+        .propane-guide .timer-steps {
+            margin: 0;
+            padding-left: 1.3rem;
+        }
+
+        .propane-guide .timer-steps li {
+            padding-left: 0.25rem;
+        }
+
+        .propane-guide .timer-steps li+li {
+            margin-top: 1rem;
+        }
+
+        .propane-guide .timer-steps li::marker {
+            color: var(--muted-dark);
+            font-weight: 800;
+        }
+
+        .propane-guide .timer-photos {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0.85rem;
+        }
+
+        .propane-guide .timer-photo {
+            margin: 0;
+            overflow: hidden;
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid var(--border-soft);
+        }
+
+        .propane-guide .timer-photo img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .propane-guide .timer-reminder {
+            margin-bottom: 1rem;
+        }
+
+        .propane-guide .timer-reminder p {
+            margin: 0;
+        }
+
+        @media (max-width: 1100px) {
+            .propane-guide .appliance-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .propane-guide .timer-photos {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="page-shell propane-guide">
+        <div class="utility-bar sticky-home">
+            <a class="utility-link" href="index.html">
+                Back to guide home
+            </a>
+        </div>
+
+        <section class="hero-card">
+            <h1>Outdoor Fireplace and BBQ</h1>
+            <p>
+                Both the outdoor fireplace and BBQ have propane timers that must
+                be turned on before use. These timers control the propane supply
+                and automatically shut it off when the selected time runs out.
+            </p>
+            <div class="hero-meta">
+                <span class="meta-chip">Propane timers</span>
+                <span class="meta-chip">Turn on before use</span>
+            </div>
+        </section>
+
+        <aside class="panel panel-dark timer-reminder">
+            <h2>Turn On the Propane Timer First</h2>
+            <p>Then light the appliance as usual.</p>
+        </aside>
+
+        <section class="panel appliance-section" aria-labelledby="outdoor-fireplace-heading">
+            <div class="appliance-layout">
+                <div class="appliance-copy">
+                    <h2 id="outdoor-fireplace-heading">Outdoor Fireplace</h2>
+                    <ol class="timer-steps">
+                        <li>
+                            Locate the propane timer mounted on the post beside
+                            the cold plunge.
+                        </li>
+                        <li>
+                            Turn the timer to your desired time
+                            (e.g. 20, 30, 40, or 60 minutes).
+                        </li>
+                        <li>
+                            Go back to the outdoor fireplace and light it as usual.
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="timer-photos">
+                    <figure class="timer-photo">
+                        <img src="outdoor-fireplace-timer-location.jpeg"
+                            alt="Outdoor fireplace propane timer mounted on the wooden post beside the cold plunge."
+                            loading="lazy">
+                    </figure>
+
+                    <figure class="timer-photo">
+                        <img src="outdoor-fireplace-timer.jpeg"
+                            alt="Closer view of the red outdoor fireplace propane timer on the wooden post."
+                            loading="lazy">
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <section class="panel appliance-section" aria-labelledby="bbq-heading">
+            <div class="appliance-layout">
+                <div class="appliance-copy">
+                    <h2 id="bbq-heading">BBQ</h2>
+                    <ol class="timer-steps">
+                        <li>
+                            Locate the propane timer underneath the BBQ in the cabinet.
+                        </li>
+                        <li>
+                            Turn the timer to your desired time
+                            (e.g. 20, 30, 40, or 60 minutes).
+                        </li>
+                        <li>
+                            Go back to the BBQ and light it as usual.
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="timer-photos">
+                    <figure class="timer-photo">
+                        <img src="bbq-timer-location.jpeg"
+                            alt="Open cabinet underneath the BBQ showing the red propane timer inside." loading="lazy">
+                    </figure>
+
+                    <figure class="timer-photo">
+                        <img src="bbq-timer.jpeg" alt="Close-up of the red BBQ propane timer and its minute settings."
+                            loading="lazy">
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <aside class="panel panel-dark">
+            <h2>Important</h2>
+            <p>
+                When you are finished, please turn off the BBQ and outdoor
+                fireplace as usual. Do not leave the propane running and rely
+                on the timer to shut it off.
+            </p>
+        </aside>
+    </main>
+</body>
+
+</html>
